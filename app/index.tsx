@@ -1,19 +1,114 @@
-import { Pressable , View } from "react-native";
-import TextFont from "./components/UI/TextFont";
+import { View , FlatList, ViewToken } from "react-native";
 import { router } from "expo-router";
+import Btn, { TextBtn } from "./components/UI/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
+import ImageScroller from "./components/OnBoarding/ImageScroller";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect, useRef, useState } from "react";
+
+const dataOfFeatures = [
+  {
+    name: 'Camera',
+    description: 'scan the Qr using camera',
+    icon: require('@/assets/images/onBoarding/camera.png')
+  },
+  {
+    name: 'Expand experience',
+    description: 'let costumers and casher be happy',
+    icon: require('@/assets/images/onBoarding/handsShake.png')
+  },
+  {
+    name: 'Camera',
+    description: 'scan the Qr using camera',
+    icon: require('@/assets/images/onBoarding/camera.png')
+  },
+]
+
+const checkedIfComeBefore = async () => {
+  return await AsyncStorage.getItem('viewedOnBoarding') ? true : false
+}
+
+const registerIfComeBefore = async () => {
+  await AsyncStorage.setItem('viewedOnBoarding' , '1')
+  router.push('/(tabs)')
+}
 
 export default function Index() {
-  return (
-    <View
-    className="flex-1 bg-slate-500 justify-center items-center px-4"
-    >
-      <TextFont className="text-4xl text-red-300">Edit app/index.tsx to edit this screen.</TextFont>
+  const [currentIndex , setCurrentIndex] = useState(0)
+  const flatListRef = useRef<FlatList>(null)
 
-      <Pressable onPress={() => {router.push('/(tabs)')}}>
-          <TextFont>
-            hello
-          </TextFont>
-      </Pressable>
-    </View>
+  useEffect(() => {
+    const checkIfViewed = async () => {
+      if (await checkedIfComeBefore()) {
+        router.push('/(tabs)');
+      }
+    };
+    checkIfViewed();
+  }, []);
+
+  const handleNextPress = () => {
+    if(currentIndex < dataOfFeatures.length - 1){
+      flatListRef.current?.scrollToIndex({ index: currentIndex + 1 })
+    }else{
+      registerIfComeBefore()
+    }
+  }
+
+  const onViewItemChange = useRef(( {viewableItems} : {viewableItems: ViewToken[] } ) => {
+    if(viewableItems && viewableItems.length > 0){
+      setCurrentIndex(viewableItems[0].index ?? 0)
+    }
+  }).current
+
+  const viewConfigRef = useRef( { viewAreaCoveragePercentThreshold : 50} ).current
+
+  return (
+    <SafeAreaView className="flex-1 bg-primary pb-3">
+        {/* Photos slider */}
+        <FlatList 
+          data={dataOfFeatures}
+          ref={flatListRef}
+          onViewableItemsChanged={onViewItemChange}
+          viewabilityConfig={viewConfigRef}
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          pagingEnabled
+          renderItem={({item}) => {
+            return(
+              <ImageScroller 
+              icon={item.icon}
+              name={item.name}
+              description={item.description}
+              />
+            )
+          }}
+        />
+
+        {/* Bottom screen */}
+        <View className="flex flex-row justify-between items-center px-3">
+            <TextBtn functionality={() => {
+              registerIfComeBefore()
+              }}>
+              Skip
+            </TextBtn>
+            {/* Dots */}
+            <View className="flex flex-row justify-center gap-x-3">
+            {
+                dataOfFeatures.map((_, index) => (
+                  <View
+                  key={index}
+                  className={index === currentIndex ?  'w-10 h-4 bg-secondary rounded-full' : 'w-4 h-4 bg-secondary/40 rounded-full'  }
+                  />
+                )
+              )
+            }
+            </View>
+            <Btn functionality={() => {
+              handleNextPress()
+              }}>
+              Next
+            </Btn>
+        </View>
+    </SafeAreaView>
   );
 }
