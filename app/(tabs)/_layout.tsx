@@ -1,10 +1,11 @@
 import { Tabs } from "expo-router";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 
 export default function RootLayout() {
-  const size = 30
+  const size = 26
 
   return <Tabs screenOptions={{
     tabBarActiveTintColor: 'white',
@@ -36,6 +37,17 @@ export default function RootLayout() {
           variant={focused ? "Bold" : "Linear"}
           color={color}
         />
+      ),
+    }}
+    />
+    <Tabs.Screen 
+    name="makeQr"
+    options={{
+      tabBarIcon: ({ color }) => (
+        <MaterialCommunityIcons 
+        name="qrcode-plus" 
+        size={size} 
+        color={color} />
       ),
     }}
     />
