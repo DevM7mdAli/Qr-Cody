@@ -30,18 +30,20 @@ const checkedIfComeBefore = async () => {
 
 const registerIfComeBefore = async () => {
   await AsyncStorage.setItem('viewedOnBoarding' , '1')
-  router.push('/(tabs)')
+  router.replace('/(tabs)')
 }
 
 export default function Index() {
   const [currentIndex , setCurrentIndex] = useState(0)
   const flatListRef = useRef<FlatList>(null)
+  const [loading , setLoading] = useState(true)
 
   useEffect(() => {
     const checkIfViewed = async () => {
       if (await checkedIfComeBefore()) {
-        router.push('/(tabs)');
+        router.replace('/(tabs)');
       }
+      setLoading(false)
     };
     checkIfViewed();
   }, []);
@@ -61,6 +63,12 @@ export default function Index() {
   }).current
 
   const viewConfigRef = useRef( { viewAreaCoveragePercentThreshold : 50} ).current
+
+
+  if(loading)
+    return <View 
+    className="flex-1 bg-primary"
+    />
 
   return (
     <SafeAreaView className="flex-1 bg-primary pb-3">

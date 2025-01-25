@@ -13,6 +13,7 @@ const Btn = ({ children , className , functionality } : CustomPressableProps) =>
     <Pressable 
     className={`${className} bg-accent p-5 rounded-2xl`}
     onPress={functionality}
+    hitSlop={10}
     >
       <TextFont className='text-secondary text-xl'>
         {children}
@@ -23,6 +24,7 @@ const Btn = ({ children , className , functionality } : CustomPressableProps) =>
 
 export const TextBtn = ({ children , className , functionality } : CustomPressableProps) => (
           <Pressable 
+          hitSlop={10}
           className={`${className} p-5`}
           onPress={functionality}
           >
