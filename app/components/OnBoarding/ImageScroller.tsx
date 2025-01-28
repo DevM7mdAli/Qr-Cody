@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import TextFont from '../UI/TextFont';
+import {TextRegular} from '../UI/TextFont';
 
 import { ImageSourcePropType } from 'react-native';
 
@@ -12,12 +12,12 @@ const ImageScroller = ({icon, name, description} : {icon: ImageSourcePropType , 
       className="w-screen"
       resizeMode="center"
     />
-    <TextFont className="text-center text-white text-3xl">
+    <TextRegular className="text-center text-white text-3xl">
       {name}
-    </TextFont>
-    <TextFont className="text-center text-white text-lg">
+    </TextRegular>
+    <TextRegular className="text-center text-white text-lg">
       {description}
-    </TextFont>
+    </TextRegular>
   </View>
   );
 }

@@ -9,6 +9,10 @@ module.exports = {
         secondary: '#F4F4FB',
         accent: '#000000',
       },
+      fontFamily: {
+        kanit_Regular: ['Kanit-Regular'],
+        kanit_Bold: ['Kanit-Bold']
+      },
     },
   },
   plugins: [],

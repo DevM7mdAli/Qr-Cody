@@ -1,12 +1,19 @@
-import React from 'react';
 import { TextProps, Text } from 'react-native';
 
-const TextFont = ({ children , className } : TextProps) => {
+const TextRegular = ({ children , className } : TextProps) => {
   return (
-    <Text className={`${className} font-bold text-white`}>
+    <Text className={`${className} font-kanit_Regular text-white`}>
       {children}
     </Text>
   );
 }
 
-export default TextFont;
+const TextBold = ({ children , className } : TextProps) => {
+  return (
+    <Text className={`${className} font-kanit_Bold text-white`}>
+      {children}
+    </Text>
+  );
+}
+
+export {TextBold , TextRegular};

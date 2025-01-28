@@ -42,6 +42,12 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
           "recordAudioAndroid": true
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Kanit/Kanit-Bold.ttf" , "./assets/fonts/Kanit/Kanit-Regular.ttf"]
+        }
       ]
     ],
     "experiments": {
