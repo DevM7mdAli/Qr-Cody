@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "526833545592",
+    "firebase_url": "https://qrcody-f268d-default-rtdb.firebaseio.com",
+    "project_id": "qrcody-f268d",
+    "storage_bucket": "qrcody-f268d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526833545592:android:d8e26ad8e91d017365188d",
+        "android_client_info": {
+          "package_name": "com.DevM7mdAli.qrCody"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiG_LbFEgNmEPgTXrf_V51M28ROIgIKJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

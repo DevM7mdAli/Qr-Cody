@@ -1,14 +1,23 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import UserList from '../components/Screens/ListOfOrders/UserList';
+import AdminMakerList from '../components/Screens/ListOfOrders/AdminMakerList';
 
 const List = () => {
   return (
-    <View>
-      
-    </View>
+    <SafeAreaView className='bg-primary flex-1'>
+      {
+        true ? 
+        (
+          <UserList />
+        )
+        :
+        (
+          <AdminMakerList />
+        )
+      }
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({})
 
 export default List;

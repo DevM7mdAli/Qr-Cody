@@ -26,7 +26,7 @@ const MakeQr = () => {
           />
         </View>
 
-        <View className='pb-4'>
+        <View className='pb-4 px-4'>
           <Input 
           value={urlValue}
           onChangeText={(e) => {setUrlValue(e)}}
