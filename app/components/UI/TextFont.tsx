@@ -1,8 +1,9 @@
+import cn from '@/app/lib/utils';
 import { TextProps, Text } from 'react-native';
 
 const TextRegular = ({ children , className } : TextProps) => {
   return (
-    <Text className={`${className} font-kanit_Regular text-white`}>
+    <Text className={cn(`font-kanit_Regular text-white`, className )}>
       {children}
     </Text>
   );
@@ -10,10 +11,10 @@ const TextRegular = ({ children , className } : TextProps) => {
 
 const TextBold = ({ children , className } : TextProps) => {
   return (
-    <Text className={`${className} font-kanit_Bold text-white`}>
+    <Text className={cn('font-kanit_Bold text-white', className)}>
       {children}
     </Text>
   );
 }
 
-export {TextBold , TextRegular};
+export { TextBold , TextRegular };
