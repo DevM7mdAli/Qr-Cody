@@ -15,7 +15,8 @@ const UserList = () => {
     data={data}
     className='px-3'
     ListEmptyComponent={<TextBold>You don't have any confirmed order</TextBold>}
-    ItemSeparatorComponent={() => (<View className='h-6' />)}
+    ItemSeparatorComponent={() => (<View className='h-1 mb-4 mt-1 rounded-full bg-white'/>)}
+    ListHeaderComponent={() => (<TextRegular className='text-3xl text-center'>Hello</TextRegular>)}
     renderItem={({item}) => (
       <Pressable 
       className='items-center bg-secondary p-4 rounded-xl'

@@ -1,26 +1,27 @@
 import { View , FlatList, ViewToken } from "react-native";
 import { router } from "expo-router";
-import Btn, { TextBtn } from "./components/UI/Button";
+import Btn, { TextBtn } from "../components/UI/Button";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ImageScroller from "./components/OnBoarding/ImageScroller";
+import ImageScroller from "../components/OnBoarding/ImageScroller";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useRef, useState } from "react";
+import { CAMERA, SHAKE } from "@/constants/images";
 
 const dataOfFeatures = [
   {
     name: 'Camera',
     description: 'scan the Qr using camera',
-    icon: require('@/assets/images/onBoarding/camera.png')
+    icon: CAMERA
   },
   {
     name: 'Expand experience',
     description: 'let costumers and casher be happy',
-    icon: require('@/assets/images/onBoarding/handsShake.png')
+    icon: SHAKE
   },
   {
     name: 'Camera',
     description: 'scan the Qr using camera',
-    icon: require('@/assets/images/onBoarding/camera.png')
+    icon: CAMERA
   },
 ]
 
@@ -30,7 +31,7 @@ const checkedIfComeBefore = async () => {
 
 const registerIfComeBefore = async () => {
   await AsyncStorage.setItem('viewedOnBoarding' , '1')
-  router.replace('/(tabs)')
+  router.replace('/(auth)')
 }
 
 export default function Index() {
@@ -41,7 +42,7 @@ export default function Index() {
   useEffect(() => {
     const checkIfViewed = async () => {
       if (await checkedIfComeBefore()) {
-        router.replace('/(tabs)');
+        router.replace('/(auth)');
       }
       setLoading(false)
     };

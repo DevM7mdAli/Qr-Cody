@@ -1,10 +1,10 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {TextBold , TextRegular} from '../components/UI/TextFont';
+import {TextBold , TextRegular} from '../../components/UI/TextFont';
 import { View, Image, Linking, AppState, StatusBar, Platform } from 'react-native';
-import Btn from '../components/UI/Button';
+import Btn from '../../components/UI/Button';
 import { useEffect, useRef, useState } from 'react';
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
-import { TextBtn } from '../components/UI/Button';
+import { TextBtn } from '../../components/UI/Button';
 
 const Index = () => {
   const [permission , setPermission] = useCameraPermissions()

@@ -1,8 +1,8 @@
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
-import Input from '../components/UI/Input';
+import Input from '../../components/UI/Input';
 import { useState } from 'react';
-import { TextBold } from '../components/UI/TextFont';
+import { TextBold } from '../../components/UI/TextFont';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const MakeQr = () => {

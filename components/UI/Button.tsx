@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Pressable, PressableProps } from 'react-native';
-import {TextRegular} from './TextFont';
+import TextFont from './TextFont';
 
 interface CustomPressableProps extends PressableProps {
   className?: string;
@@ -15,9 +15,9 @@ const Btn = ({ children , className , functionality } : CustomPressableProps) =>
     onPress={functionality}
     hitSlop={10}
     >
-      <TextRegular className='text-secondary text-xl'>
+      <TextFont className='text-secondary text-xl'>
         {children}
-      </TextRegular>
+      </TextFont>
     </Pressable>
   );
 }
@@ -28,9 +28,9 @@ export const TextBtn = ({ children , className , functionality } : CustomPressab
           className={`${className} p-5`}
           onPress={functionality}
           >
-            <TextRegular className='text-secondary text-xl'>
+            <TextFont className='text-secondary text-xl'>
               {children}
-            </TextRegular>
+            </TextFont>
           </Pressable>
   
 )

@@ -24,6 +24,7 @@ const Input = ({
       value={value}
       onChangeText={onChangeText}
       placeholder={placeholder}
+      placeholderTextColor={'white'}
       keyboardType={keyboardType}
       editable={editable}
       className={`h-16 border border-secondary bg-accent p-4 rounded-lg text-secondary text-xl ${extraClassName}`}

@@ -1,4 +1,4 @@
-import { TextBold, TextRegular } from '@/app/components/UI/TextFont';
+import { TextBold, TextRegular } from '@/components/UI/TextFont';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -12,8 +12,9 @@ const Orders = () => {
   useEffect(() => {
     navigation.setOptions({
       title: `Order ID: ${id}`,
+      headerBackTitle: 'Orders',
     });
-  }, [navigation]);
+  }, [navigation, id]);
 
   return (
 
