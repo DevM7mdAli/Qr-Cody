@@ -1,4 +1,5 @@
-import { TextInput , TextInputProps } from 'react-native';
+import { TextInput , TextInputProps, View } from 'react-native';
+import TextFont from './TextFont';
 
 interface InputProps extends TextInputProps {
   value: string;
@@ -6,6 +7,7 @@ interface InputProps extends TextInputProps {
   placeholder?: string;
   keyboardType?: TextInputProps['keyboardType'];
   editable?: boolean;
+  hasError?: string;
   extraClassName?: string
 }
 
@@ -17,19 +19,27 @@ const Input = ({
   keyboardType = 'default',
   editable = true,
   extraClassName,
+  hasError,
   ...rest
 } : InputProps) => {
   return (
-    <TextInput
-      value={value}
-      onChangeText={onChangeText}
-      placeholder={placeholder}
-      placeholderTextColor={'white'}
-      keyboardType={keyboardType}
-      editable={editable}
-      className={`h-16 border border-secondary bg-accent p-4 rounded-lg text-secondary text-xl ${extraClassName}`}
-      {...rest}
-    />
+    <View>
+      <TextInput
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        placeholderTextColor={'white'}
+        keyboardType={keyboardType}
+        editable={editable}
+        className={`h-16 border border-secondary bg-accent p-4 rounded-lg text-secondary text-xl ${extraClassName}`}
+        {...rest}
+      />
+      {
+        hasError ? (<TextFont className={`text-sm ${hasError ? "text-error" : ""}`}>{hasError}</TextFont>)
+        : null
+      }
+
+    </View>
   );
 };
 

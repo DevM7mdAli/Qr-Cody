@@ -2,7 +2,7 @@ import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import Input from '../../components/UI/Input';
 import { useState } from 'react';
-import { TextBold } from '../../components/UI/TextFont';
+import TextFont from '../../components/UI/TextFont';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const MakeQr = () => {
@@ -14,9 +14,9 @@ const MakeQr = () => {
     className='bg-primary flex-1'
     >
       <SafeAreaView>
-        <TextBold className='text-center text-3xl'>
+        <TextFont fontType='Bold' className='text-center text-3xl'>
           Make a QrCode
-        </TextBold>
+        </TextFont>
       </SafeAreaView>
 
         <View className='flex-1 justify-center items-center'>

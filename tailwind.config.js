@@ -8,6 +8,7 @@ module.exports = {
         primary: '#111117',
         secondary: '#F4F4FB',
         accent: '#000000',
+        error: '#FF3333'
       },
       fontFamily: {
         kanit_Regular: ['Kanit-Regular'],

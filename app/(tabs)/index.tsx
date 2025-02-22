@@ -1,5 +1,5 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {TextBold , TextRegular} from '../../components/UI/TextFont';
+import TextFont from '../../components/UI/TextFont';
 import { View, Image, Linking, AppState, StatusBar, Platform } from 'react-native';
 import Btn from '../../components/UI/Button';
 import { useEffect, useRef, useState } from 'react';
@@ -42,12 +42,12 @@ const Index = () => {
   if(notUsingCamera)
     return (
       <SafeAreaView className='bg-primary flex-1'>
-        <TextBold className='text-center text-3xl py-3'>
+        <TextFont className='text-center text-3xl py-3'>
           Confirm The Order
-        </TextBold>
-        <TextRegular className='text-center'>
+        </TextFont>
+        <TextFont className='text-center'>
           scan the QR
-        </TextRegular>
+        </TextFont>
         <View className='flex-1 justify-center items-center'>
           <Image 
           source={require('@/assets/images/general/scanQr.png')}

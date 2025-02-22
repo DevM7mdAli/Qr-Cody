@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier" : "com.DevM7mdAli.qrCody"
+      "bundleIdentifier" : "com.DevM7mdAli.qrCody",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Expo uses your camera to scan project QR codes. Expo experiences you open may use the camera with"
+      }
     },
     "android": {
       "package": "com.DevM7mdAli.qrCody",

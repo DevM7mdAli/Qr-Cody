@@ -1,4 +1,4 @@
-import { TextBold, TextRegular } from '@/components/UI/TextFont';
+import TextFont from '@/components/UI/TextFont';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -25,9 +25,9 @@ const Orders = () => {
           size={250}
           />
 
-          <TextBold>The id: {id}</TextBold>
-          <TextRegular>Order status: complete</TextRegular>
-          <TextRegular>time of: 1/1/1998</TextRegular>
+          <TextFont fontType='Bold'>The id: {id}</TextFont>
+          <TextFont>Order status: complete</TextFont>
+          <TextFont>time of: 1/1/1998</TextFont>
         </View>
       
 
